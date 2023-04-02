@@ -57,23 +57,23 @@ void Cargar(Cliente *p, int x){
             productos[j].precioUnitario = 10 + rand() % (101-10) / 1.0;
         }
         p[i].productos = productos;
-        free(nombre);
     }
     printf("\n----------------------------------------\n");
 }
 
 void Mostrar(Cliente *p, int x){
-    float costo=0, total=0;
+    float costo=0;
     printf("\n***********LISTADO CLIENTES:***********\n");
     for (int i = 0; i < x; i++)
     {
+        float total=0;
         printf("---Id[%d]---\n", p[i].clienteID);
         printf("Nombre: %s\n", p[i].nombreCliente);
         printf("Cantidad de Productos: %d\n", p[i].cantidadProductosAPedir);
         printf("[Productos:]\n");
         for (int j = 0; j < p[i].cantidadProductosAPedir; j++)
         {
-            printf("** Producto[%d]\n", p[i].productos[j].productoID);
+            printf("[[[Producto: %d]]]\n", p[i].productos[j].productoID);
             printf("***** Cantidad: %d\n", p[i].productos[j].cantidad);
             printf("***** Tipo Producto: %s\n", p[i].productos[j].tipoProducto);
             printf("***** Precio Unitario: $%.2f\n", p[i].productos[j].precioUnitario);
@@ -81,7 +81,7 @@ void Mostrar(Cliente *p, int x){
             printf("******* Costo Producto: $%.2f\n", costo);
             total += costo;
         }
-        printf("******* Costo Total a Pagar: $%.2f\n", total);
+        printf("********* Costo Total a Pagar: $%.2f\n", total);
         printf("\n***************************************\n");
     }
     printf("\n***************************************\n");
